@@ -12,12 +12,20 @@ Main functions: read the cache trace & send requests to memcached server & colle
 
 ## Usage
 
-- build cmemcached simply by `make`
+- install libmemcached dependency
 
-- run memcached instance
+- build cmemcached
+
+    - for single-tenant: `make single`
+    - for multi-tenant: `make multi`
+
+- run memcached instance(s)
+
+    **Note:** for multi-tenant situations, the running ports for multiple memcached instances should be incremented consecutively from a particular starting port
 
 - run cmemcached with tracepath in command line
 
-```
-./cmemcached tracepath1 tracepath2 ...
-```
+    ```
+    ./cmemcached tracepath1 tracepath2 ...
+    ```
+    **Note:** for multi-tenant situations, the macro `PORT` in source code corresponds to the starting port of the several memcached instances
